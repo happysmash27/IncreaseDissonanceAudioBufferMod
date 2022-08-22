@@ -25,7 +25,7 @@
 
 
   <Target Name="ValidateNeededDirectories" BeforeTargets="ResolveReferences">
-    <Error Condition=" '$(MelonLoaderPath)' == '' " Text='MelonLoaderPath could not be found! Please either set it manually using -p:ManagedPath=&lt;path&gt;, or link it as a folder named "MelonLoader" in this directory.'/>
+    <Error Condition=" '$(MelonLoaderPath)' == '' " Text='MelonLoaderPath could not be found! Please either set it manually using -p:MelonLoaderPath=&lt;path&gt;, or link it as a folder named "MelonLoader" in this directory.'/>
     <Error Condition=" '$(ManagedPath)' == '' " Text='ManagedPath could not be found! Please either set it manually using -p:ManagedPath=&lt;path&gt;, or link it as a folder named "Managed" in this directory.'/>
   </Target>
 
