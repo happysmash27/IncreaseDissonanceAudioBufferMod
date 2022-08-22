@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+
+  <PropertyGroup Condition="Exists('C:\Program Files (x86)\Steam\steamapps\common\ChilloutVR')">
+    <MelonLoaderPath>C:\Program Files (x86)\Steam\steamapps\common\ChilloutVR\MelonLoader</MelonLoaderPath>
+    <ManagedPath>C:\Program Files (x86)\Steam\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed</ManagedPath>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="Exists('$(HOME)/.local/share/Steam/steamapps/common/ChilloutVR')">
+    <MelonLoaderPath>$(HOME)/.local/share/Steam/steamapps/common/ChilloutVR/MelonLoader</MelonLoaderPath>
+    <ManagedPath>$(HOME)/.local/share/Steam/steamapps/common/ChilloutVR/ChilloutVR_Data/Managed</ManagedPath>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="Exists('MelonLoader')">
+    <MelonLoaderPath>MelonLoader</MelonLoaderPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="Exists('Managed')">
+    <ManagedPath>Managed</ManagedPath>
+  </PropertyGroup>
+
+
+  <Target Name="ValidateNeededDirectories" BeforeTargets="ResolveReferences">
+    <Error Condition=" '$(MelonLoaderPath)' == '' " Text='MelonLoaderPath could not be found! Please either set it manually using -p:ManagedPath=&lt;path&gt;, or link it as a folder named "MelonLoader" in this directory.'/>
+    <Error Condition=" '$(ManagedPath)' == '' " Text='ManagedPath could not be found! Please either set it manually using -p:ManagedPath=&lt;path&gt;, or link it as a folder named "Managed" in this directory.'/>
+  </Target>
+
+
+  <ItemGroup>
+    <Reference Include="MelonLoader">
+      <HintPath>$(MelonLoaderPath)/MelonLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(MelonLoaderPath)/0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Dissonance">
+      <HintPath>$(ManagedPath)/DissonanceVoip.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IncreaseDissonanceAudioBuffer.cs" />
+  </ItemGroup>
+</Project>
