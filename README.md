@@ -1,5 +1,5 @@
 # Increase Dissonance Audio Buffer
-This is a Melonloader mod to increase the dissonance audio buffer size from the default and inadequate 16, to a much larger number, by default 256, in order to fix the issue where you sound like a microwave at low framerates due to the buffer being too small to store your audio in-between frames.
+This is a Melonloader mod to increase the dissonance audio buffer size from the default and inadequate 16, to a much larger number, by default 1024, in order to fix the issue where you sound like a microwave at low framerates due to the buffer being too small to store your audio in-between frames.
 
 To build, download the project (`git clone https://github.com/happysmash27/IncreaseDissonanceAudioBufferMod`), cd into its directory in your terminal (`cd IncreaseDissonanceAudioBufferMod`), and run `dotnet build` for a Debug build or `dotnet build --configuration Release` for a Release build (I recommend a Release build for normal usage); or download and import it into an IDE that supports .csproj projects and build it there. If building on the command line, be sure to have dotnet installed so that the `dotnet` command exists!
 
